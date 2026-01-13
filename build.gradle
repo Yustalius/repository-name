@@ -9,8 +9,22 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testImplementation 'com.codeborne:selenide:7.13.0'
+    testImplementation 'net.datafaker:datafaker:2.5.3'
 }
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
+}
+
+task positiveTest(type: Test) {
+    useJUnitPlatform {
+        includeTags 'positive'
+    }
+}
+
+task negativeTest(type: Test) {
+    useJUnitPlatform {
+        includeTags 'negative'
+    }
 }

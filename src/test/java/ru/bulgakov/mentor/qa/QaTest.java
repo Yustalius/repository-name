@@ -1,19 +1,20 @@
-package ru.bulgakov.qa;
+package ru.bulgakov.mentor.qa;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
-import ru.bulgakov.pages.YandexSearchPage;
+import ru.bulgakov.mentor.pages.YandexSearchPage;
+import ru.bulgakov.webshop.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class QaTest {
+public class QaTest extends TestBase {
 
   @Test
   void mentoringPriceShouldBe47000Test() {
-    Configuration.pageLoadTimeout = 100000; // таймаут прогрузки страницы
-    Configuration.timeout = 100000; // таймаут прогрузки элементов
+    Configuration.pageLoadTimeout = 10000; // таймаут прогрузки страницы
+    Configuration.timeout = 10000; // таймаут прогрузки элементов
 
     open("https://ya.ru/", YandexSearchPage.class)
         .search("bulgakov qa")

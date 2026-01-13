@@ -1,4 +1,4 @@
-package ru.bulgakov.pages;
+package ru.bulgakov.mentor.pages;
 
 public class WelcomePage {
 
