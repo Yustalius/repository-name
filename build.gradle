@@ -54,3 +54,9 @@ task jenkinsTest(type: Test) {
         includeTags 'jenkins'
     }
 }
+
+task uiTest(type: Test) {
+    useJUnitPlatform {
+        includeTags 'UI'
+    }
+}
