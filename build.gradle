@@ -33,30 +33,11 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform{
+        if (System.getProperty("tags") != null) {
+            includeTags(System.getProperty("tags"))
+        }
+    }
     systemProperties(System.getProperties())
 }
 
-task positiveTest(type: Test) {
-    useJUnitPlatform {
-        includeTags 'positive'
-    }
-}
-
-task negativeTest(type: Test) {
-    useJUnitPlatform {
-        includeTags 'negative'
-    }
-}
-
-task jenkinsTest(type: Test) {
-    useJUnitPlatform {
-        includeTags 'jenkins'
-    }
-}
-
-task uiTest(type: Test) {
-    useJUnitPlatform {
-        includeTags 'UI'
-    }
-}

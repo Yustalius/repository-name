@@ -40,7 +40,7 @@ public class LoginTest  extends TestBase {
     }
 
     @Test
-    @Tag("UI")
+    @Tags({@Tag("UI"), @Tag("positive")})
     void successLoginTest() {
       open(WEB_SHOP_URL, WSWelcomePage.class)
           .openLogin()
@@ -53,6 +53,7 @@ public class LoginTest  extends TestBase {
     }
   }
 
+  @Tags({@Tag("UI"), @Tag("negative")})
   @ParameterizedTest(name = "Авторизация с невалидным email: {0}")
   @CsvFileSource(resources = "/email.csv")
   void invalidEmailLoginTest(String email) {
