@@ -21,7 +21,6 @@ public class RegistrationTest extends TestBase {
 
   @Test
   @Owner("v.yustus")
-  @Tag("positive")
   @Severity(CRITICAL)
   @Epic("Авторизация")
   @Feature("Регистрация")
