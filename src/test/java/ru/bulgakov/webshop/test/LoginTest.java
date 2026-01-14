@@ -1,10 +1,7 @@
 package ru.bulgakov.webshop.test;
 
 import net.datafaker.Faker;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -43,6 +40,7 @@ public class LoginTest  extends TestBase {
     }
 
     @Test
+    @Tags({@Tag("UI"), @Tag("positive")})
     void successLoginTest() {
       open(WEB_SHOP_URL, WSWelcomePage.class)
           .openLogin()
@@ -55,6 +53,7 @@ public class LoginTest  extends TestBase {
     }
   }
 
+  @Tags({@Tag("UI"), @Tag("negative")})
   @ParameterizedTest(name = "Авторизация с невалидным email: {0}")
   @CsvFileSource(resources = "/email.csv")
   void invalidEmailLoginTest(String email) {

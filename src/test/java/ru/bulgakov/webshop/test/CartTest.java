@@ -1,6 +1,8 @@
 package ru.bulgakov.webshop.test;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.bulgakov.webshop.TestBase;
 import ru.bulgakov.webshop.steps.AuthSteps;
@@ -21,6 +23,7 @@ public class CartTest  extends TestBase {
   }
 
   @Test
+  @Tags({@Tag("UI"), @Tag("positive")})
   void addItemToCartTest() {
     open(WEB_SHOP_URL);
     $$("ul.top-menu li a").get(1).hover();

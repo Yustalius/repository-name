@@ -28,6 +28,7 @@ public class RegistrationTest extends TestBase {
   @Link("TASK-120")
   @DisplayName("Успешная регистрация нового пользователя")
   @Description("Создаем нового пользователя со случайными данными через интерфейс")
+  @Tags({@Tag("UI"), @Tag("positive")})
   void registrationTest() {
     String email = faker.internet().emailAddress();
     String password = faker.harryPotter().character() + faker.number().positive();
