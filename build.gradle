@@ -48,3 +48,9 @@ task negativeTest(type: Test) {
         includeTags 'negative'
     }
 }
+
+task jenkinsTest(type: Test) {
+    useJUnitPlatform {
+        includeTags 'jenkins'
+    }
+}
