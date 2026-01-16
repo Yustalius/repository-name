@@ -14,7 +14,7 @@ import ru.bulgakov.webshop.pages.WsRegistrationPage;
 import static com.codeborne.selenide.Selenide.*;
 import static ru.bulgakov.webshop.config.Config.*;
 
-public class LoginTest  extends TestBase {
+public class LoginTest extends TestBase {
   private static final Faker faker = new Faker();
   private String email;
   private String password;
@@ -25,7 +25,7 @@ public class LoginTest  extends TestBase {
     @BeforeEach
     void beforeEach() {
       email = faker.internet().emailAddress();
-      password = faker.harryPotter().character() + faker.number().positive();
+      password = createPassword();
 
       open(WEB_SHOP_REGISTRATION_URL, WsRegistrationPage.class)
           .register(
@@ -62,5 +62,9 @@ public class LoginTest  extends TestBase {
         .enterPassword("password")
         .verifyEmailValidationErrorAppear()
         .submitLogin();
+  }
+
+  private String createPassword() {
+    return faker.harryPotter().character() + "_" + faker.breakingBad().character() + "-" + faker.number().positive();
   }
 }

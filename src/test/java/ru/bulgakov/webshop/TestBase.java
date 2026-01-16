@@ -16,6 +16,7 @@ import static ru.bulgakov.webshop.config.Config.getWebDriverConfig;
 public class TestBase {
 
   private static final WebDriverConfig config = getWebDriverConfig();
+  protected String field = "field";
 
   @BeforeAll
   static void setUp() {
